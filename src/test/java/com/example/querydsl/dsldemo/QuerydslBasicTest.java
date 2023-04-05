@@ -1,6 +1,7 @@
 package com.example.querydsl.dsldemo;
 
 import com.example.querydsl.dsldemo.dto.MemberDto;
+import com.example.querydsl.dsldemo.dto.MemberSearchCondition;
 import com.example.querydsl.dsldemo.dto.QMemberDto;
 import com.example.querydsl.dsldemo.dto.UserDto;
 import com.example.querydsl.dsldemo.entity.Member;
@@ -484,7 +485,8 @@ public class QuerydslBasicTest {
         }
     }
 
-    @Test //setter에 값이 들어감
+    @Test
+        //setter에 값이 들어감
     void findDtoBySetter() {
         List<MemberDto> result = queryFactory
                 .select(Projections.bean(MemberDto.class,
@@ -498,7 +500,8 @@ public class QuerydslBasicTest {
         }
     }
 
-    @Test //getter setter없이도 필드에 값이 들어감
+    @Test
+        //getter setter없이도 필드에 값이 들어감
     void findDtoByField() {
         List<MemberDto> result = queryFactory
                 .select(Projections.fields(MemberDto.class,
@@ -599,7 +602,7 @@ public class QuerydslBasicTest {
     }
 
     private BooleanExpression allEq(String usernameCond, Integer ageCond) {
-        return usernameEq(usernameCond).and(ageEq(ageCond)) ;
+        return usernameEq(usernameCond).and(ageEq(ageCond));
     }
 
     @Test
@@ -651,5 +654,4 @@ public class QuerydslBasicTest {
             System.out.println("s = " + s);
         }
     }
-
 }
